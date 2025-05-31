@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   getBudgets,
   createBudget,
   convertBudgetToOrder,
 } from "../services/budgetService";
-import { getInventories } from "../services/inventoryService";
 import { format } from "date-fns";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axiosInstance from "../services/axiosInterface";
@@ -74,7 +73,7 @@ const { data: inventoryItems = [] } = useQuery({
     }));
   };
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["budgets"],
     queryFn: getBudgets,
   });
