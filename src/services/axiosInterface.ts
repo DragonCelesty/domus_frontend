@@ -1,21 +1,18 @@
 import axios from 'axios';
-import { useUserStore } from '../store/userStore';  
+import { useUserStore } from '../store/userStore';
 
-const API = 'https://domusbackend-production.up.railway.app'
+const API = 'https://domusbackend-production.up.railway.app';
 
 const axiosInstance = axios.create({
   baseURL: API,
 });
 
-axiosInstance.interceptors.request.use(
-    (config) => {
-      const token = useUserStore.getState().token;
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    },
-    (error) => Promise.reject(error)
-  );
+axiosInstance.interceptors.request.use((config) => {
+  const token = useUserStore.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
 
 export default axiosInstance;
