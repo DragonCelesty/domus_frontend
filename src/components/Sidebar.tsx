@@ -5,7 +5,6 @@ import { useUserStore } from '../store/userStore'; // Importar el store de usuar
 import {
   FaHome,
   FaBox,
-  FaExchangeAlt,
   FaMoneyBill,
   FaSignOutAlt,
   FaBars,

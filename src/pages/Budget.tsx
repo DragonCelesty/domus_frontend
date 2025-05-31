@@ -35,12 +35,23 @@ interface BudgetItem {
     totalPrice: number;
   }
 
+  interface Item {
+    itemId: number;
+    quantity: number;
+    unitCost: any;
+  }
+
+  interface FormData {
+    clientId: string;
+    items: Item[];
+  }
+
 const BudgetsPage = () => {
   const queryClient = useQueryClient();
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState<Budget | null>(null);
-  const [formData, setFormData] = useState({ clientId: "", items: [] });
+  const [formData, setFormData] = useState<FormData>({ clientId: "", items: [] });
   const [selectedItemId, setSelectedItemId] = useState<number | null>(null);
 const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
 const { data: inventoryItems = [] } = useQuery({
@@ -81,7 +92,7 @@ const { data: inventoryItems = [] } = useQuery({
   const createBudgetMutation = useMutation({
     mutationFn: createBudget,
     onSuccess: () => {
-      queryClient.invalidateQueries(["budgets"]);
+      queryClient.invalidateQueries(["budgets"] as const) ;
       setShowCreateModal(false);
       setFormData({ clientId: "" , items: [] });
     },
@@ -89,7 +100,7 @@ const { data: inventoryItems = [] } = useQuery({
 
   const convertToOrderMutation = useMutation({
     mutationFn: convertBudgetToOrder,
-    onSuccess: () => queryClient.invalidateQueries(["budgets"]),
+    onSuccess: () => queryClient.invalidateQueries(["budgets"] as const),
   });
 
   const handleCreate = () => {
