@@ -18,7 +18,7 @@ Este proyecto es el frontend de la aplicación prueba tecnica Domus, desarrollad
   - `/components`: Componentes reutilizables
   - `/pages`: Páginas principales
   - `/store`: Zustand para estado global
-  - `/api`: Funciones para consumir el backend
+  - `/services`: Funciones para consumir el backend
   - `/hooks`: Hooks personalizados
   - `App.tsx`: Entrada principal y configuración de rutas
 
