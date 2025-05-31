@@ -151,7 +151,7 @@ const { data: inventoryItems = [] } = useQuery({
                 </button>
                 {!budget.isOrder && (
                   <button
-                    onClick={() => convertToOrderMutation.mutate(budget.id)}
+                    onClick={() => convertToOrderMutation.mutate(budget.id.toString())}
                     className="text-green-600 underline"
                   >
                     Convertir a Orden
