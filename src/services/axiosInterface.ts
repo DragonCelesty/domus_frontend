@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useUserStore } from '../store/userStore';  
 
-const API = import.meta.env.VITE_API_URL as string;
+const API = 'https://domusbackend-production.up.railway.app'
 
 const axiosInstance = axios.create({
   baseURL: API,
