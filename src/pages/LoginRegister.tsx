@@ -7,7 +7,7 @@ import { Button } from "../components/ui/Button";
 export function LoginRegister() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { register, loading, error, setAuthData } = useAuth(); // Assuming setAuthData is available in useAuth
+  const { register, loading, error, setAuthData } = useAuth(); 
   const navigate = useNavigate();
 
   const handleRegister = async () => {

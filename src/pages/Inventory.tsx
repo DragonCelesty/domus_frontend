@@ -57,7 +57,8 @@ const Inventory = () => {
 
   // Actualización
   const updateMutation = useMutation({
-    mutationFn: updateInventory,
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      updateInventory(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["inventories"] });
       setSelectedItem(null);
@@ -96,7 +97,11 @@ const Inventory = () => {
 
   const handleUpdate = () => {
     if (selectedItem) {
-      updateMutation.mutate(selectedItem);
+      const payload = {
+        id: selectedItem.id?? "default-id",
+        data: { name: selectedItem.name, stock: selectedItem.stock }, // Map relevant properties
+      };
+      updateMutation.mutate(payload);
     }
   };
 

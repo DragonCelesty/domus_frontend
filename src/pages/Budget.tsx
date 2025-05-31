@@ -92,7 +92,7 @@ const { data: inventoryItems = [] } = useQuery({
   const createBudgetMutation = useMutation({
     mutationFn: createBudget,
     onSuccess: () => {
-      queryClient.invalidateQueries(["budgets"] as const) ;
+      queryClient.invalidateQueries({ queryKey: ["budgets"] }) ;
       setShowCreateModal(false);
       setFormData({ clientId: "" , items: [] });
     },
@@ -100,7 +100,7 @@ const { data: inventoryItems = [] } = useQuery({
 
   const convertToOrderMutation = useMutation({
     mutationFn: convertBudgetToOrder,
-    onSuccess: () => queryClient.invalidateQueries(["budgets"] as const),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["budgets"] }),
   });
 
   const handleCreate = () => {
@@ -188,7 +188,7 @@ const { data: inventoryItems = [] } = useQuery({
           Producto:
           <select
             className="w-full border p-2 mt-1"
-            value={selectedItemId}
+            value={selectedItemId ? selectedItemId.toString() : ""}
             onChange={(e) => setSelectedItemId(Number(e.target.value))}
           >
             <option value="">Seleccione un producto</option>

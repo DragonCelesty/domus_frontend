@@ -1,4 +1,3 @@
-// src/hooks/useAuth.ts
 import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 
@@ -24,5 +23,10 @@ export function useAuth() {
     return !error;
   };
 
-  return { login, register, loading, error };
+  const setAuthData = (authData: any) => {
+    // This function can be used to store authentication data in local storage or context
+    // For example, you might want to store the session or user data
+    localStorage.setItem('authData', JSON.stringify(authData));
+  }
+  return { login, register, loading, error, setAuthData };
 }
