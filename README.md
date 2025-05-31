@@ -20,6 +20,7 @@ Este proyecto es el frontend de la aplicación prueba tecnica Domus, desarrollad
   - `/store`: Zustand para estado global
   - `/services`: Funciones para consumir el backend
   - `/hooks`: Hooks personalizados
+  - `/lib`: Lib para la conexion del login con supabase
   - `App.tsx`: Entrada principal y configuración de rutas
 
 ## Herramientas de IA utilizadas
