@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# Domus Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es el frontend de la aplicación prueba tecnica Domus, desarrollado con React, Vite, Zustand y Axios. Está diseñado para consumir la API REST del backend y brindar una experiencia de usuario fluida y responsiva.
 
-Currently, two official plugins are available:
+## Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- Vite
+- Zustand (estado global)
+- Axios (consumo de API)
+- React Router v6 (navegación)
+- Tailwind CSS (estilos)
+- Supabase Auth (autenticación)
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `/src`: Código fuente
+  - `/components`: Componentes reutilizables
+  - `/pages`: Páginas principales
+  - `/store`: Zustand para estado global
+  - `/api`: Funciones para consumir el backend
+  - `/hooks`: Hooks personalizados
+  - `App.tsx`: Entrada principal y configuración de rutas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Herramientas de IA utilizadas
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Durante el desarrollo de este proyecto, se incorporaron herramientas de inteligencia artificial para optimizar el flujo de trabajo, acelerar la generación de código y mejorar la calidad general del software.
+	- ChatGPT (OpenAI GPT-4):
+Se utilizó como asistente para resolver dudas técnicas, generar ejemplos y fragmentos de código, optimizar algoritmos y recibir recomendaciones de buenas prácticas. Esto permitió acelerar la etapa de desarrollo y encontrar soluciones más limpias y efectivas a problemas complejos.
+	- GitHub Copilot:
+Esta herramienta proporcionó autocompletado inteligente y sugerencias en tiempo real dentro del editor, ayudando a escribir código más rápido y con menos errores. Copilot fue especialmente útil para la creación rápida de funciones, manejo de estructuras comunes y reducción de tareas repetitivas.
